@@ -1,0 +1,14 @@
+<% @articles.each do |article| %>
+  <div class="article-top d-flex justify-content-between">
+    <h2><%= link_to article.title, article_path(article) %></h2>
+    <div class="actions">
+    <%= link_to "", article_path(article),
+        method: :delete,
+        data: { confirm: "Are you sure?" }, class: "fa fa-trash-o" %>
+    <%= link_to "", edit_article_path(article), class: "fa fa-pencil"  %>
+    </div>
+  </div>
+
+  <p><%= article.content %></p>
+<% end %>
+
